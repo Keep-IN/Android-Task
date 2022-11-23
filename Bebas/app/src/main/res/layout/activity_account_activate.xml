@@ -124,7 +124,7 @@
                 <EditText
                     android:id="@+id/noRek"
                     android:layout_width="295dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/custom_input_bg"
                     android:ems="10"
                     android:hint="No. Rekening"
@@ -161,7 +161,7 @@
                 <EditText
                     android:id="@+id/idUser"
                     android:layout_width="295dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/custom_input_bg"
                     android:ems="10"
                     android:hint="ID Pengguna"
@@ -200,7 +200,7 @@
                 <EditText
                     android:id="@+id/userPassw"
                     android:layout_width="295dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/custom_input_bg"
                     android:ems="10"
                     android:hint="Kata Sandi"
@@ -237,7 +237,7 @@
                 <EditText
                     android:id="@+id/confirmPass"
                     android:layout_width="295dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/custom_input_bg"
                     android:ems="10"
                     android:hint="Konfirmasi Kata Sandi"

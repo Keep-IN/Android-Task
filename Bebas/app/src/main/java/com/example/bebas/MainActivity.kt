@@ -40,8 +40,6 @@ class MainActivity : AppCompatActivity() {
             validate()
         }
 
-//        binding.userCard.isVisible = false
-
         binding.passwordTextInput.editText?.doOnTextChanged { text, start, before, count ->
             if(isPassValid){
                 validate()
