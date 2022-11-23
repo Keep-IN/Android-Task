@@ -271,7 +271,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/toLogin"
                 android:layout_width="335dp"
                 android:layout_height="55dp"
                 android:layout_marginTop="16dp"
