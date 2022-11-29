@@ -13,7 +13,7 @@ class LoginFragment: Fragment() {
     companion object{
         const val TAG = "LoginFragment"
 
-        fun newInstance(data: String): LoginFragment{
+        fun newInstanceLogin(data: String): LoginFragment{
             val fragment = LoginFragment()
             val bundle = Bundle().apply{
                 putString("key", data)
@@ -42,7 +42,7 @@ class LoginFragment: Fragment() {
     }
 
     fun typeToUsername(string: String){
-        binding.usernameTextInput.editText?.setText(string)
+        binding.usernameTextInput.editText?.setText(arguments?.getString(string))
     }
 
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
+import com.example.fragmentapp.RegisterFragment.Companion.newInstanceRegist
 import com.example.fragmentapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), LoginFragmentInterface {
@@ -37,11 +38,11 @@ class MainActivity : AppCompatActivity(), LoginFragmentInterface {
     }
 
     override fun onClickSetLogin() {
+        getLoginFragment()?.typeToUsername(getRegisFragment()?.typeToUsername().toString())
         supportFragmentManager.beginTransaction()
-            .replace(binding.fragmentContainer.id, LoginFragment(), LoginFragment.TAG)
-            .addToBackStack(null)
+            .add(binding.fragmentContainer.id, LoginFragment(), LoginFragment.TAG)
+            .disallowAddToBackStack()
             .commit()
-//        getLoginFragment()?.typeToUsername("Budi")
     }
 
     private fun getLoginFragment(): LoginFragment? {

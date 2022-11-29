@@ -12,6 +12,15 @@ import com.example.fragmentapp.databinding.LayoutRegisterBinding
 class RegisterFragment: Fragment() {
     companion object {
         const val TAG = "RegisterFragment"
+
+        fun newInstanceRegist(data: String): RegisterFragment{
+            val fragment = RegisterFragment()
+            val bundle = Bundle().apply{
+                putString("key", data)
+            }
+            fragment.arguments = bundle
+            return fragment
+        }
     }
     private lateinit var binding: LayoutRegisterBinding
     private var registerInterface: LoginFragmentInterface? = null
@@ -29,11 +38,12 @@ class RegisterFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = LayoutRegisterBinding.inflate(layoutInflater, container, false)
+
         return binding.root
     }
 
-    fun typeToUsername(string: String){
-        binding.userIdTextInput.editText?.setText(string)
+    fun typeToUsername(){
+        newInstanceRegist(binding.userIdTextInput.editText?.text.toString())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
