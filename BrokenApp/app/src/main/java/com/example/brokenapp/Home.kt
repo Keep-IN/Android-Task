@@ -30,6 +30,11 @@ class Home : AppCompatActivity() {
         binding.userProfile.setTextColor(R.color.black, R.color.blue)
         binding.userProfile.setTextSize(16f, 12f)
         binding.userProfile.setIcon(R.drawable.ic_notif)
+        binding.userProfile.setListener(object : UserCardInterface {
+            override fun onClickIcon() {
+                startActivity(Intent(this@Home, Notification::class.java))
+            }
+        })
 
         adapterNotif = AdapterItem(listTransactionTitle.toMutableList())
 
@@ -37,6 +42,17 @@ class Home : AppCompatActivity() {
         binding.rvTransaction.adapter = adapterNotif
         binding.rvTransaction.layoutManager = layoutManager
 
+        adapterNotif.setOnClickItemListener(rvClickListener)
+
+    }
+
+    private val rvClickListener: (title: String, accountDetail: String, transactionAmount: String) -> Unit =
+        {title, accountDetail, transactionAmount ->
+            startActivity(Intent(this@Home,HIstory::class.java).apply {
+                putExtra("accTitle", title)
+                putExtra("accDetail", accountDetail)
+                putExtra("accAmount", transactionAmount)
+            })
     }
 
 }

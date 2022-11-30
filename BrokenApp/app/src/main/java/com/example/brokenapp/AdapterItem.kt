@@ -8,6 +8,8 @@ import com.example.brokenapp.databinding.ItemViewBinding
 
 class AdapterItem(private val data: MutableList<ItemModel> = mutableListOf()): RecyclerView.Adapter<AdapterItem.ViewHolder>() {
 
+    private var itemClickListener: ((String, String, String) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             ItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -15,13 +17,16 @@ class AdapterItem(private val data: MutableList<ItemModel> = mutableListOf()): R
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.validateBind(data[position])
+        holder.validateBind(data[position], itemClickListener)
     }
 
     override fun getItemCount(): Int = data.size
 
     inner class ViewHolder(private val binding: ItemViewBinding): RecyclerView.ViewHolder(binding.root) {
-        fun validateBind(item: ItemModel){
+        fun validateBind(item: ItemModel, listener: ((String, String, String) -> Unit)?){
+            binding.root.setOnClickListener {
+                listener?.invoke(item.title, item.accountDetail, item.transactionAmount)
+            }
             when(item.type){
                 "Keluar" -> {
                     binding.tvTitle.text = item.title
@@ -39,5 +44,8 @@ class AdapterItem(private val data: MutableList<ItemModel> = mutableListOf()): R
                 }
             }
         }
+    }
+    fun setOnClickItemListener(listener: (title: String, accountDetail: String, transactionAmount: String) -> Unit){
+        this.itemClickListener = listener
     }
 }
