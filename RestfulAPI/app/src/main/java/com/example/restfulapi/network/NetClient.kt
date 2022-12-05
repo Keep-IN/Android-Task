@@ -1,6 +1,8 @@
 package com.example.restfulapi.network
 
 import com.example.restfulapi.BuildConfig
+import com.example.restfulapi.deserializeJson
+import com.example.restfulapi.network.model.UserPagination
 import okhttp3.*
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.logging.HttpLoggingInterceptor
@@ -52,8 +54,15 @@ class NetClient {
 
                     override fun onResponse(call: Call, response: Response) {
                         if (response.isSuccessful) {
-                            val responseBody = response.body?.string()?.let { JSONObject(it) }
-                            onResponse.invoke(responseBody, null)
+                            val userPagination = deserializeJson<UserPagination>(response.body?.string() ?: "") ?: UserPagination()
+//                            val responseBody = response.body?.string()?.let { JSONObject(it) }
+                            onResponse.invoke(
+                                ResponseStatus.Success(
+                                    data = userPagination.data,
+                                    method = "GET",
+                                    status = true
+                                )
+                            )
                         } else {
                             onResponse.invoke(null, Throwable("failed response"))
                         }
