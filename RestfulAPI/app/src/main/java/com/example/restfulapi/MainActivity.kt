@@ -1,9 +1,11 @@
 package com.example.restfulapi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.restfulapi.adapter.UserAdapter
 import com.example.restfulapi.databinding.ActivityMainBinding
 import com.example.restfulapi.network.NetClient
@@ -28,9 +30,10 @@ class MainActivity : AppCompatActivity() {
             UserApi().getUsers { userPagination, error ->
                 CoroutineScope(Dispatchers.Main).launch {
                     if (error == null) {
-                        adapterNotif = UserAdapter(userPagination?.data?.toMutableList())
+                        adapterNotif = UserAdapter(this@MainActivity, userPagination?.data?.toMutableList() ?: mutableListOf())
                         binding.rvUsersList.adapter = adapterNotif
                         binding.rvUsersList.layoutManager = layoutManager
+                        adapterNotif.setOnItemClicker(rvClickListener)
                     } else {
                         AlertDialog
                             .Builder(this@MainActivity)
@@ -41,6 +44,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    private val rvClickListener: (String, String, String) -> Unit =
+        {name, email, avatar ->
+            startActivity(Intent(this@MainActivity, UserDetail::class.java).apply {
+                putExtra("userName", name)
+                putExtra("userEmail", email)
+                putExtra("userAvatar", avatar)
+            })
+
+        }
 
 //        val client = OkHttpClient()
 //        val request = Request.Builder()

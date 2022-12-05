@@ -5,7 +5,7 @@ import com.example.restfulapi.network.NetClient
 import com.example.restfulapi.network.model.UserPagination
 
 class UserApi {
-    fun getUsers(page: Int = 1, onResponse: (UserPagination?, Throwable?) -> Unit) {
+    fun getUsers(page: Int = 2, onResponse: (UserPagination?, Throwable?) -> Unit) {
         NetClient
             .getApi("/users?page$page", null) { responseBody, error ->
                 if (error == null) {
