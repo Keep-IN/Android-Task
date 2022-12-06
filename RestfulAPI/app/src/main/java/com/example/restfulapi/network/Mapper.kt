@@ -30,4 +30,28 @@ object Mapper {
             avatar = getString("avatar")
         )
     }
+
+    fun JSONObject.getStringData(key: String, default: String): String {
+        return if (this.has(key)) {
+            this.getString(key)
+        } else {
+            default
+        }
+    }
+
+    fun JSONObject.getBooleanData(key: String, default: Boolean): Boolean {
+        return if (this.has(key)) {
+            this.getBoolean(key)
+        } else {
+            default
+        }
+    }
+
+    fun JSONObject.getIntData(key: String): Int {
+        return if (this.has(key)) {
+            this.getInt(key)
+        } else {
+            0
+        }
+    }
 }
