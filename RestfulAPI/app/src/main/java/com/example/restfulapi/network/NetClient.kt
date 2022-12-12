@@ -34,8 +34,8 @@ class NetClient {
                             if (androidx.viewbinding.BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
                     }
                 )
-                .callTimeout(timeout = 5L, unit = TimeUnit.SECONDS)
-                .connectTimeout(timeout = 2L, unit = TimeUnit.SECONDS)
+                .callTimeout(timeout = 10L, unit = TimeUnit.SECONDS)
+                .connectTimeout(timeout = 5L, unit = TimeUnit.SECONDS)
                 .build()
         }
 
