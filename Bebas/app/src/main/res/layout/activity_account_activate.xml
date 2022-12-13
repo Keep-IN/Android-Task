@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F7FD"
-    tools:context=".AccountActivate">
+    tools:context=".features.signup.AccountActivate">
 
     <ImageButton
         android:id="@+id/imageButton"

@@ -1,10 +1,10 @@
-package com.example.bebas
+package com.example.bebas.features.signup
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bebas.databinding.ActivityAccountActivateBinding
-import com.example.bebas.databinding.ActivityMainBinding
+import com.example.bebas.features.MainActivity
 
 class AccountActivate : AppCompatActivity() {
     private lateinit var binding: ActivityAccountActivateBinding
