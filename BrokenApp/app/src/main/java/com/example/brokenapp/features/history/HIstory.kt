@@ -1,4 +1,4 @@
-package com.example.brokenapp
+package com.example.brokenapp.features.history
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,10 +1,10 @@
-package com.example.brokenapp
+package com.example.brokenapp.features.signup
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.brokenapp.databinding.ActivityMainBinding
 import com.example.brokenapp.databinding.ActivityAccountActivateBinding
+import com.example.brokenapp.features.MainActivity
 
 class AccountActivate : AppCompatActivity() {
     private lateinit var binding: ActivityAccountActivateBinding

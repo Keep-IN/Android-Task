@@ -1,4 +1,4 @@
-package com.example.brokenapp
+package com.example.brokenapp.data
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

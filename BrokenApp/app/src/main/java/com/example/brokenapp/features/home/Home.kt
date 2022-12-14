@@ -1,12 +1,18 @@
-package com.example.brokenapp
+package com.example.brokenapp.features.home
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.brokenapp.*
+import com.example.brokenapp.data.AdapterItem
+import com.example.brokenapp.data.ItemModel
 import com.example.brokenapp.databinding.ActivityHomeBinding
+import com.example.brokenapp.features.notification.Notification
+import com.example.brokenapp.features.UserCardInterface
+import com.example.brokenapp.features.history.HIstory
 
-class Home : AppCompatActivity() {
+class Home : AppCompatActivity(), HomeContract {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var adapterNotif: AdapterItem
 
@@ -48,7 +54,7 @@ class Home : AppCompatActivity() {
 
     private val rvClickListener: (title: String, accountDetail: String, transactionAmount: String) -> Unit =
         {title, accountDetail, transactionAmount ->
-            startActivity(Intent(this@Home,HIstory::class.java).apply {
+            startActivity(Intent(this@Home, HIstory::class.java).apply {
                 putExtra("accTitle", title)
                 putExtra("accDetail", accountDetail)
                 putExtra("accAmount", transactionAmount)

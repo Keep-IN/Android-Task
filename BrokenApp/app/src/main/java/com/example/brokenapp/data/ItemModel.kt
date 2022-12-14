@@ -1,4 +1,4 @@
-package com.example.brokenapp
+package com.example.brokenapp.data
 
 data class ItemModel(
     val type: String,

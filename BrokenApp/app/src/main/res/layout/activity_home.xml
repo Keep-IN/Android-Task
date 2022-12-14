@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F3F7FD">
 
-  <com.example.brokenapp.UserCardView
+  <com.example.brokenapp.features.UserCardView
       android:id="@+id/userProfile"
       android:layout_width="388dp"
       android:layout_height="67dp"
