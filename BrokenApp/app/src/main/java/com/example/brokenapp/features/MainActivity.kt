@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
+import com.example.brokenapp.R
+import com.example.brokenapp.data.UserData
 import com.example.brokenapp.databinding.ActivityMainBinding
 import com.example.brokenapp.features.home.Home
 import com.example.brokenapp.features.login.LoginPresenter
@@ -24,6 +26,10 @@ class MainActivity : AppCompatActivity(), LoginView {
         setContentView(binding.root)
 
         presenter.onAttach(this)
+
+        binding.userCard.apply {
+            setTextColor(R.color.white, R.color.white)
+        }
 
         binding.usernameTextInput.editText?.doOnTextChanged { text, start, before, count ->
             presenter.validateUserName(txUsername)
@@ -54,6 +60,8 @@ class MainActivity : AppCompatActivity(), LoginView {
 
     private fun onValidateInput(){
         binding.btnLogin.isEnabled = txUsername.isNotBlank() && txPassword.isNotBlank()
+                && presenter.validateUserName(txUsername)
+                && presenter.validatePassword(txPassword)
     }
 
     override fun onLoading() {
@@ -71,22 +79,6 @@ class MainActivity : AppCompatActivity(), LoginView {
             3 -> binding.passwordTextInput.error = message
             4 -> binding.usernameTextInput.error = message
         }
-    }
-
-    override fun onErrorUsername(message: String) {
-
-    }
-
-    override fun onErrorPassword(message: String) {
-
-    }
-
-    override fun onSuccesUsername() {
-
-    }
-
-    override fun onSuccesPassword() {
-
     }
 
     override fun onSuccessLogin() {

@@ -39,8 +39,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="335dp"
-        android:layout_height="276dp"
+        android:layout_width="337dp"
+        android:layout_height="301dp"
         android:background="@drawable/bg_cardview"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,8 +75,8 @@
                     android:ems="10"
                     android:hint="Username"
                     android:includeFontPadding="true"
-                    android:paddingLeft="10dp"
                     android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
                     android:textColorHint="#97A5C9"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -95,13 +95,12 @@
                 android:textColorHint="@color/hint"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:errorEnabled="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/usernameTextInput"
-                app:layout_constraintVertical_bias="0.219"
+                app:layout_constraintVertical_bias="0.15"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="#2F82FF">
 
@@ -136,10 +135,9 @@
                 android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.533"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/passwordTextInput"
-                app:layout_constraintVertical_bias="0.19" />
+                app:layout_constraintVertical_bias="0.294" />
 
             <com.example.brokenapp.features.UserCardView
                 android:id="@+id/userCard"
@@ -176,12 +174,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/purple_500"
+        android:clickable="true"
         app:backgroundTint="@color/white"
         app:borderWidth="2dp"
-        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:srcCompat="@drawable/facerec"
         app:strokeColor="#FFFFFF" />
 
@@ -214,7 +213,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgotPass"
-        app:layout_constraintVertical_bias="0.549">
+        app:layout_constraintVertical_bias="0.422">
 
         <ImageView
             android:id="@+id/imageView"
